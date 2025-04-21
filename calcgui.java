@@ -232,25 +232,33 @@ public class calcgui {
         });
 
     butequal.addActionListener(new ActionListener(){
+        
         public void actionPerformed(ActionEvent e){
             equation2=equation;
-            if (operator.equals("+"))
+            try 
             {
-                result=equation1+equation2;
-            }
-            else if (operator.equals("-"))
+                if (operator.equals("+"))
+                {
+                    result=equation1+equation2;
+                }
+                else if (operator.equals("-"))
+                {
+                    result=equation1-equation2;
+                }
+                else if (operator.equals("x"))
+                {
+                    result=equation1*equation2;
+                }
+                else if (operator.equals("/"))
+                {
+                    result=equation1/equation2;
+                }
+                equationstr.setText(result.toString());
+            } 
+            catch (Exception f) 
             {
-                result=equation1-equation2;
+                equationstr.setText("Invalid Input");
             }
-            else if (operator.equals("x"))
-            {
-                result=equation1*equation2;
-            }
-            else if (operator.equals("/"))
-            {
-                result=equation1/equation2;
-            }
-            equationstr.setText(result.toString());
             }
             });
 
